@@ -12,5 +12,5 @@ typename T::const_iterator easyfind(T const &container, int tofind_) {
     std::cerr << "Error: value " << tofind_ << " does not exist in container."
               << std::endl;
   }
-  return container.end();
+  return it;
 }
