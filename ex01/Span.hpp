@@ -12,6 +12,8 @@ public:
   Span(std::size_t size_);
   Span(Span const &other);
   Span &operator=(Span const &rhs);
+  int &operator[](std::size_t idx_);
+  int operator[](std::size_t idx_) const;
 
   void addNumber(int n_);
 
@@ -22,5 +24,6 @@ public:
 
 private:
   std::size_t _size;
-  std::vector<int> _internal_vec;
+  _IntVector _internal_vec;
+  std::size_t _pos;
 };
