@@ -7,12 +7,8 @@
 
 #define _IntVector std::vector<int>
 
-#define Vector(T) std::vector<T>
-
 int main(void) {
   _IntVector vec1;
-  vec1.reserve(4);
-  vec1.end() = vec1.end() - (vec1.capacity() > 4 ? (vec1.capacity() - 4) : 0);
   vec1.push_back(1);
   vec1.push_back(2);
   vec1.push_back(3);
