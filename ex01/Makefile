@@ -3,7 +3,7 @@ NAME := span
 
 # Necessities
 CXX := c++
-CXXFLAGS := -Wall -Wextra -Werror -std=c++98 -g3
+CXXFLAGS := -Wall -Wextra -Werror -std=c++98
 
 #Colors:
 GREEN		=	\e[92;5;118m
@@ -14,20 +14,19 @@ CURSIVE		=	\e[33;3m
 
 # Targets
 SRC := Span.cpp main.cpp
-INCLUDES := $(SRC:.cpp=.hpp)
+INCLUDES := Span.hpp 
 
 # Rules
 all: $(NAME)
 
-$(NAME): $(SRC)
+$(NAME): $(SRC) $(INCLUDES)
 	$(CXX) -o $@ $(CXXFLAGS) $(SRC)
 	@printf "$(GREEN)Compilation successful!$(RESET)\n"
 
 clean:
 	rm -rf $(NAME)
 	@printf "$(YELLOW)Executable removed.$(RESET)\n"
- 
-valgrind:
+valgrind: | $(NAME)
 	@printf "$(CURSIVE)Running valgrind...$(RESET)\n"
 	valgrind --leak-check=full ./$(NAME)
 
